@@ -1,6 +1,6 @@
-
 package com.mycompany.simulacao.de.atendimento.bancario;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Guiche {
@@ -8,9 +8,9 @@ public class Guiche {
     
     public int operacao() {
         Random rd = new Random();
-        ocupado = true;
         
-        int opcao = rd.nextInt(0,2);
+        
+        int opcao = rd.nextInt(0,3);
         int tempoMedio = 0;
          
         //pega o tempo médio de cada opção para deixar o guiche ocupado pelo tempo médio
@@ -28,4 +28,13 @@ public class Guiche {
         
         return tempoMedio;
 }
+    public void utilizando(ArrayList Fila) {
+        ocupado = true;
+        
+        
+        // int tempoDeEspera = segundosContados + op;
+        
+        // retira o primeiro cliente da fila
+       Fila.remove(0); 
+    }
 }

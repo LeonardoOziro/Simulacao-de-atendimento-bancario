@@ -7,26 +7,38 @@ import java.util.Random;
 
 public class SimulacaoDeAtendimentoBancario {
 
+    static int segundosContados = 0;
+    
     public static void main(String[] args) throws InterruptedException {
         ArrayList<Integer> Fila = new ArrayList<Integer>();
-        Cronometro cronometro = new Cronometro();
         Random rd = new Random();
+        Guiche guiche1 = new Guiche();
 
-        int RandomNumber;
+        // inicializa cliente
+        int Cliente = 123;
 
-        //esse for é temporario
-        for(int i = 0; i < 21600; i++) {
-
-            RandomNumber = rd.nextInt(0, 29);
-            cronometro.segundos();
+        
+        while(segundosContados < 21600) {
             
-            //Adiciona cliente na fila
-            if (RandomNumber == 0) {
-                Fila.add(cronometro.contador);
+            // Adiciona cliente a fila
+            Cliente = rd.nextInt(0, 30);
+            segundosContados++;
+            
+            if(Cliente == 0) {
+                Fila.add(segundosContados);
+                System.out.println("Cliente encontrado na fila no segundo " + segundosContados);
+                
+                if(guiche1.ocupado == false) {
+                    
+                }
             }
             
-            System.out.println(RandomNumber);
         }
+        System.out.println(Fila);
+        guiche1.utilizando(Fila);
+        System.out.println(Fila);
+        
+        
         
         
     }
